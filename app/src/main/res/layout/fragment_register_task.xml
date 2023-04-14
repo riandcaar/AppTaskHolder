@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textTask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Registre su tarea"
+            android:inputType="textMultiLine"
+            android:textColor="#673AB7"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.096"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.188" />
+
+        <EditText
+            android:id="@+id/titleEt"
+            android:layout_width="326dp"
+            android:layout_height="30dp"
+            android:background="@android:color/transparent"
+            android:hint="Titulo Tarea"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/registerTaskField"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.329"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTask"
+            app:layout_constraintVertical_bias="0.58" />
+
+        <EditText
+            android:id="@+id/registerTaskField"
+            android:layout_width="361dp"
+            android:layout_height="89dp"
+            android:hint="Cual es la Tarea"
+            android:background="@android:color/transparent"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.56"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleEt" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
