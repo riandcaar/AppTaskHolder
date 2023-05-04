@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/taskHolderFragment">
+    app:startDestination="@id/loginFragment">
 
     <activity
         android:id="@+id/mainActivity"
@@ -12,7 +12,7 @@
         tools:layout="@layout/activity_main" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.apptasknew.UI.Fragments.LoginFragment"
+        android:name="com.example.apptasknew.ui.fragments.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -24,29 +24,45 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.apptasknew.UI.Fragments.RegisterFragment"
+        android:name="com.example.apptasknew.ui.fragments.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
             android:id="@+id/action_registerFragment_to_taskHolderFragment"
             app:destination="@id/taskHolderFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerTaskFragment"
-        android:name="com.example.apptasknew.UI.Fragments.RegisterTaskFragment"
+        android:name="com.example.apptasknew.ui.fragments.RegisterTaskFragment"
         android:label="fragment_register_task"
         tools:layout="@layout/fragment_register_task" >
         <action
             android:id="@+id/action_registerTaskFragment_to_taskHolderFragment"
             app:destination="@id/taskHolderFragment" />
+        <argument
+            android:name="userId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/taskHolderFragment"
-        android:name="com.example.apptasknew.UI.Fragments.TaskHolderFragment"
+        android:name="com.example.apptasknew.ui.fragments.TaskHolderFragment"
         android:label="fragment_task_holder"
         tools:layout="@layout/fragment_task_holder" >
         <action
             android:id="@+id/action_taskHolderFragment_to_registerTaskFragment"
             app:destination="@id/registerTaskFragment" />
+        <argument
+            android:name="userId"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_taskHolderFragment_to_sharedTask"
+            app:destination="@id/sharedTask" />
     </fragment>
+    <fragment
+        android:id="@+id/sharedTask"
+        android:name="com.example.apptasknew.ui.fragments.SharedTask"
+        android:label="SharedTask" />
 </navigation>

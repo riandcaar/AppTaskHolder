@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">AppTaskNew</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">Email</string>
+    <string name="password">Contraseña</string>
+    <string name="forgotPassword">Olvidaste tu contraseña?</string>
+    <string name="login">Iniciar Sesiòn</string>
+    <string name="resetPassword">Enviar Contraseña</string>
+    <string name="acept">He leido y acepto los</string>
+    <string name="terms">tèrminos y condiciones de uso</string>
+
+    <string name="empty_email">Introduce un email</string>
+    <string name="invalid_email">mmm parece que el mail està mal escrito</string>
     <string name="add">add</string>
+    <string name="see_community_tasks">see community tasks</string>
+    <string name="see_community_task">see_community_task</string>
 </resources>

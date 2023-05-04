@@ -4,6 +4,10 @@ plugins {
     id('kotlin-kapt')
     id('androidx.navigation.safeargs.kotlin')
     id('kotlin-parcelize')
+    id('kotlinx-serialization')
+
+    //Firebase
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -49,13 +53,25 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
+    //FireBase
+    implementation platform('com.google.firebase:firebase-bom:31.5.0')
+
     // Navigation Component
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
 
     // Room components
-    implementation "androidx.room:room-runtime:2.5.0"
-    kapt "androidx.room:room-compiler:2.5.0"
-    implementation "androidx.room:room-ktx:2.5.0"
-    androidTestImplementation "androidx.room:room-testing:2.5.0"
+    implementation "androidx.room:room-runtime:2.5.1"
+    kapt "androidx.room:room-compiler:2.5.1"
+    implementation "androidx.room:room-ktx:2.5.1"
+    androidTestImplementation "androidx.room:room-testing:2.5.1"
+
+    //LogIn
+    implementation platform('com.google.firebase:firebase-bom:31.5.0')
+    implementation ('com.google.firebase:firebase-auth:21.3.0')
+    implementation ('com.google.firebase:firebase-firestore:24.5.0')
+    implementation ('com.google.firebase:firebase-database:20.2.0')
+
+    //Converter
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0"
 }
