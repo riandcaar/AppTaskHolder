@@ -115,27 +115,8 @@ class LocalRepositoryImpl : LocalRepositoryInterface {
     }
 
 
-        //return try {
-            //val result = taskDao.insertTask(taskEntity)
-            //if (result != -1L)
-           // Result.success(true)
-            //else
-                //Result.success(false)
-        //} catch (error: Exception) {
-            //Result.failure(error)
-        //}
-    //}
-
     override val getAllData: LiveData<List<TaskEntity>> = taskDao.getAllData()
 
-    //override suspend fun getAllTasks(): Result<LiveData<List<TaskEntity>>> {
-      //  return try {
-        //    val resultGetAllTask = taskDao.getAllTasks()
-          //  Result.success(resultGetAllTask)
-        //} catch (error: Exception) {
-          //  Result.failure(error)
-        //}
-    //}
 
     override suspend fun deleteTask(id: Int): Result<Boolean> {
         return try {
@@ -153,12 +134,3 @@ class LocalRepositoryImpl : LocalRepositoryInterface {
         }
     }
 
-
-// Otras formas para los errores
-
-//   return if(result != -1L){
-//       Result.success(true)
-//   } else if( result == -1L){
-//       Result.success(false)
-//   } else
-//       Result.failure(Error("Algo ocurrio con el database"))

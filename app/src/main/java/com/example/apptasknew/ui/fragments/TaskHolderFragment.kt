@@ -73,7 +73,17 @@ class TaskHolderFragment : Fragment() {
 
         }
 
+        binding.seeNetworkTask.setOnClickListener {
+            findNavController().navigate(R.id.action_taskHolderFragment_to_taskNetWork)
 
+        }
+
+
+        binding.taskNetWorkById.setOnClickListener {
+            findNavController().navigate(R.id.action_taskHolderFragment_to_networkTaskById,
+                Bundle().apply { putString("CURRENT_USER_ID", userId)})
+
+        }
 
         setHasOptionsMenu(true)
         return binding.root

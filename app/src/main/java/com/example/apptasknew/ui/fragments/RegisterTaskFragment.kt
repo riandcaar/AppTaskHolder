@@ -45,13 +45,6 @@ class RegisterTaskFragment : Fragment() {
         return binding.root
     }
 
-    //createAccountLink.setOnClickListener {
-    //   val taskTitleInput = taskTitle.text.toString()
-    // val taskDescriptionInput = taskDescription.text.toString()
-
-    //taskViewModel.insertTask(taskTitleInput, taskDescriptionInput,userId.toLong())
-    //}
-
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.add_fragment_button, menu)

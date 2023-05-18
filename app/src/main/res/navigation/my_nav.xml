@@ -13,8 +13,8 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.apptasknew.ui.fragments.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
@@ -25,7 +25,7 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.apptasknew.ui.fragments.RegisterFragment"
-        android:label="fragment_register"
+        android:label="Register"
         tools:layout="@layout/fragment_register" >
         <action
             android:id="@+id/action_registerFragment_to_taskHolderFragment"
@@ -37,7 +37,7 @@
     <fragment
         android:id="@+id/registerTaskFragment"
         android:name="com.example.apptasknew.ui.fragments.RegisterTaskFragment"
-        android:label="fragment_register_task"
+        android:label="Register Task"
         tools:layout="@layout/fragment_register_task" >
         <action
             android:id="@+id/action_registerTaskFragment_to_taskHolderFragment"
@@ -49,7 +49,7 @@
     <fragment
         android:id="@+id/taskHolderFragment"
         android:name="com.example.apptasknew.ui.fragments.TaskHolderFragment"
-        android:label="fragment_task_holder"
+        android:label="My Task"
         tools:layout="@layout/fragment_task_holder" >
         <action
             android:id="@+id/action_taskHolderFragment_to_registerTaskFragment"
@@ -60,9 +60,30 @@
         <action
             android:id="@+id/action_taskHolderFragment_to_sharedTask"
             app:destination="@id/sharedTask" />
+        <action
+            android:id="@+id/action_taskHolderFragment_to_taskNetWork"
+            app:destination="@id/taskNetWork" />
+        <action
+            android:id="@+id/action_taskHolderFragment_to_networkTaskById"
+            app:destination="@id/networkTaskById" />
     </fragment>
     <fragment
         android:id="@+id/sharedTask"
         android:name="com.example.apptasknew.ui.fragments.SharedTask"
-        android:label="SharedTask" />
+        android:label="All Ussers Task"
+        tools:layout="@layout/fragment_shared_task"/>
+    <fragment
+        android:id="@+id/taskNetWork"
+        android:name="com.example.apptasknew.ui.fragments.TaskNetWork"
+        android:label="World Task Online"
+        tools:layout="@layout/fragment_task_network"/>
+    <fragment
+        android:id="@+id/networkTaskById"
+        android:name="com.example.apptasknew.ui.fragments.NetworkTaskById"
+        android:label="NetworkTaskById"
+        tools:layout="@layout/fragment_task_by_id_network">
+    <argument
+        android:name="userId"
+        app:argType="string" />
+</fragment>
 </navigation>

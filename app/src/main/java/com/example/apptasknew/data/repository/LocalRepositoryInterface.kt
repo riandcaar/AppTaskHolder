@@ -21,17 +21,10 @@ interface LocalRepositoryInterface {
 
     val getAllData: LiveData<List<TaskEntity>>
 
-    //suspend fun getAllTasks(): Result<LiveData<List<TaskEntity>>>
     suspend fun deleteTask(id: Int): Result<Boolean>
 
     suspend fun createCommunityTask(taskList: List<TaskEntity>)
 
-    //suspend fun insertTask(taskEntity: TaskEntity): Result<Boolean>
 
-
-
-    //fun deleteAllTask(): Result<Boolean>
-
-    // Login
 
 }
