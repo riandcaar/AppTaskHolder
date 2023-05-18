@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.apptasknew.data.entity.TaskEntity
 import com.example.apptasknew.data.repository.LocalRepositoryImpl
 import com.example.apptasknew.data.repository.LocalRepositoryInterface
+import com.example.apptasknew.network.dtoRepository.PostResponse
 import com.example.apptasknew.network.dtoRepository.TaskDto
 import com.example.apptasknew.network.repository.NetWorkRepositoryImpl
 import com.example.apptasknew.network.repository.NetworkRepositoryInterface
@@ -45,8 +46,8 @@ class TaskViewModel : ViewModel() {
     private val _listTask = MutableLiveData<List<TaskDto>>()
     val listTask: MutableLiveData<List<TaskDto>> = _listTask
 
-    private val _postResult = MutableLiveData<Boolean>()
-    val postResult: LiveData<Boolean> = _postResult
+    private val _postResult = MutableLiveData<Result<PostResponse>>()
+    val postResult: MutableLiveData<Result<PostResponse>> = _postResult
 
 
     // Local
@@ -128,7 +129,7 @@ class TaskViewModel : ViewModel() {
         viewModelScope.launch {
             val result = netWorkRepository.createPost(title, body, userId)
             success = result.isSuccess
-            _postResult.value = success
+            _postResult.value = result
         }
         return success
     }

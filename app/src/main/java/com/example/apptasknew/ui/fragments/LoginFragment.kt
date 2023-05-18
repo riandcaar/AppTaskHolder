@@ -38,22 +38,22 @@ class LoginFragment : Fragment() {
 
 
 
-        userViewModel.loginResult.observe(viewLifecycleOwner, Observer {
-            if (it.isNotEmpty())
-                    findNavController().navigate(R.id.action_loginFragment_to_taskHolderFragment, Bundle().apply {putString("CURRENT_USER_ID",it)})
-                 else
-                    Toast.makeText(context, "Usuario o contraseña invalida", Toast.LENGTH_SHORT)
-                        .show()
-
-        })
-
-
         userLogin.setOnClickListener {
             val userNameInput = userName.text.toString()
             val userPasswordInput = userPassword.text.toString()
 
             userViewModel.loginUser(userNameInput, userPasswordInput)
         }
+
+        userViewModel.loginResult.observe(viewLifecycleOwner, Observer {
+            if (it.isNotEmpty())
+                findNavController().navigate(R.id.action_loginFragment_to_taskHolderFragment, Bundle().apply {putString("CURRENT_USER_ID",it)})
+            else
+                Toast.makeText(context, "", Toast.LENGTH_SHORT)
+                    .show()
+
+        })
+
 
         navigateToCreateUser.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)

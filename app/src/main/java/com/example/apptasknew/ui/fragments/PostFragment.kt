@@ -45,21 +45,18 @@ class PostFragment: Fragment() {
             taskViewModel.postNetwork(tilteImput,bodyImput,userId.toInt())
 
 
-            findNavController().navigate(
-                R.id.action_postFragment_to_taskHolderFragment,
-                Bundle().apply { putString("CURRENT_USER_ID", userId) })
-
         }
 
-        taskViewModel.postResult.observe(viewLifecycleOwner, Observer {
-            when (it) {
-             true -> Toast.makeText(requireContext(), "Succesfully added", Toast.LENGTH_SHORT).show()
+        taskViewModel.postResult.observe(viewLifecycleOwner) {
 
-                else ->  Toast.makeText(context, "No se registro", Toast.LENGTH_SHORT)
+            if (it.isSuccess)
+                findNavController().navigate(
+                    R.id.action_postFragment_to_taskHolderFragment,
+                    Bundle().apply { putString("CURRENT_USER_ID", userId)})
+                else
+                Toast.makeText(context, "no se pudo publicar el post", Toast.LENGTH_SHORT)
                     .show()
-            }
-
-        })
+        }
 
         return binding.root
     }
