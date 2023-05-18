@@ -6,12 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apptasknew.R
-import com.example.apptasknew.data.entity.TaskEntity
-import com.example.apptasknew.network.DTO.DTOTask
+import com.example.apptasknew.network.dtoRepository.TaskDto
 
 class NetWorkAdapter: RecyclerView.Adapter<NetWorkAdapter.NetWorkHolderView>() {
 
-    var dataList = emptyList<DTOTask>()
+    var dataList = emptyList<TaskDto>()
 
     class NetWorkHolderView(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var titleTXT: TextView = itemView.findViewById(R.id.title_txt)
@@ -35,7 +34,7 @@ class NetWorkAdapter: RecyclerView.Adapter<NetWorkAdapter.NetWorkHolderView>() {
 
     }
 
-    fun setData(taskData: List<DTOTask>) {
+    fun setData(taskData: List<TaskDto>) {
         this.dataList = taskData
         notifyDataSetChanged()
     }

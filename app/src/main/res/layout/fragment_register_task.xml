@@ -55,7 +55,7 @@
             android:id="@+id/imageView"
             android:layout_width="413dp"
             android:layout_height="221dp"
-            app:srcCompat="@drawable/sin_t_tulo_2"
+            app:srcCompat="@drawable/_23"
             tools:layout_editor_absoluteX="-1dp"
             tools:layout_editor_absoluteY="-2dp" />
 

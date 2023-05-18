@@ -9,7 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.apptasknew.data.entity.TaskEntity
 import com.example.apptasknew.data.repository.LocalRepositoryImpl
 import com.example.apptasknew.data.repository.LocalRepositoryInterface
-import com.example.apptasknew.network.DTO.DTOTask
+import com.example.apptasknew.network.dtoRepository.TaskDto
 import com.example.apptasknew.network.repository.NetWorkRepositoryImpl
 import com.example.apptasknew.network.repository.NetworkRepositoryInterface
 import com.example.apptasknew.ui.ErrorTags
@@ -39,12 +39,14 @@ class TaskViewModel : ViewModel() {
 
     private val netWorkRepository: NetworkRepositoryInterface = NetWorkRepositoryImpl()
 
-    private val _task = MutableLiveData<List<DTOTask>>()
-    val task: LiveData<List<DTOTask>> = _task
+    private val _task = MutableLiveData<List<TaskDto>>()
+    val task: LiveData<List<TaskDto>> = _task
 
-    private val _listTask = MutableLiveData<List<DTOTask>>()
-    val listTask: MutableLiveData<List<DTOTask>> = _listTask
+    private val _listTask = MutableLiveData<List<TaskDto>>()
+    val listTask: MutableLiveData<List<TaskDto>> = _listTask
 
+    private val _postResult = MutableLiveData<Boolean>()
+    val postResult: LiveData<Boolean> = _postResult
 
 
     // Local
@@ -94,7 +96,6 @@ class TaskViewModel : ViewModel() {
     }
 
 
-
     // Metodos NetWork
 
     fun getTaskFromNetwork() {
@@ -121,5 +122,17 @@ class TaskViewModel : ViewModel() {
         }
 
     }
+
+    fun postNetwork(title: String, body: String, userId: Int): Boolean {
+        var success = false
+        viewModelScope.launch {
+            val result = netWorkRepository.createPost(title, body, userId)
+            success = result.isSuccess
+            _postResult.value = success
+        }
+        return success
+    }
 }
+
+
 

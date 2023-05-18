@@ -66,6 +66,9 @@
         <action
             android:id="@+id/action_taskHolderFragment_to_networkTaskById"
             app:destination="@id/networkTaskById" />
+        <action
+            android:id="@+id/action_taskHolderFragment_to_postFragment"
+            app:destination="@id/postFragment" />
     </fragment>
     <fragment
         android:id="@+id/sharedTask"
@@ -85,5 +88,18 @@
     <argument
         android:name="userId"
         app:argType="string" />
-</fragment>
+    </fragment>
+    <fragment
+        android:id="@+id/postFragment"
+        android:name="com.example.apptasknew.ui.fragments.PostFragment"
+        android:label="PostFragment"
+        tools:layout="@layout/fragment_post">
+        <argument
+            android:name="userId"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_postFragment_to_taskHolderFragment"
+            app:destination="@id/taskHolderFragment" />
+    </fragment>
+
 </navigation>
